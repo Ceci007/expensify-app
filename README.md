@@ -1,6 +1,6 @@
-# Indecision App
+# Expensify App
 
-is an app that chooses an option between the options you provide as an input, so basically just manages the state of an array of options. 
+Lorem ipsum...
   
 ![screenshot](./app_screenshot.png) 
 
@@ -10,7 +10,7 @@ is an app that chooses an option between the options you provide as an input, so
 
 ## Video Demo
 
-[Video Demo Link](https://www.youtube.com/watch?v=I7iDDnPxF2g&t=16s)
+[Video Demo Link]()
 
 ## Author
 - Cecilia Benitez
