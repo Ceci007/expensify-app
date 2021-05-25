@@ -1,9 +1,7 @@
 const path = require('path');
 
-// const mode = "development"; 
-
 module.exports = {
-  entry: './src/app.js',
+  entry: './src/playground/redux-101.js',
   output: {
     path: path.join(__dirname, 'public'),
     filename: 'bundle.js'
