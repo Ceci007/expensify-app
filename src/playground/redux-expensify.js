@@ -28,7 +28,7 @@ const editExpense = (id, updates) => ({
   updates
 });
 
-// Set Filter Action
+// Set Text Filter Action
 const setTextFilter = (text = '') => ({
   type: 'SET_TEXT_FILTER',
   text
