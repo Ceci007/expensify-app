@@ -12,6 +12,21 @@ const config = {
 
 firebase.initializeApp(config);
 
-firebase.database().ref().set({
-  name: 'Cecilia Benitez'
+const database = firebase.database();
+
+database.ref().set({
+  name: 'Cecilia Benitez',
+  age: 25,
+  isSingle: false,
+  location: {
+    city: 'Asuncion',
+    country: 'Paraguay'
+  }
+});
+
+database.ref('age').set(22);
+database.ref('location/city').set('Aregua');
+database.ref('attributes').set({
+  height: 62,
+  weight: 100
 });
