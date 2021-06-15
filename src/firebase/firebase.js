@@ -22,11 +22,17 @@ database.ref().set({
     city: 'Asuncion',
     country: 'Paraguay'
   }
+}).then(() => {
+  console.log('Data was saved');
+}).catch((error) => {
+  console.log('This failed', error);
 });
 
+/*
 database.ref('age').set(22);
 database.ref('location/city').set('Aregua');
 database.ref('attributes').set({
   height: 62,
   weight: 100
 });
+*/
