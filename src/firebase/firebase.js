@@ -14,6 +14,7 @@ firebase.initializeApp(config);
 
 const database = firebase.database();
 
+/*
 database.ref('isSingle')
   .remove()
   .then(() => {
@@ -21,7 +22,8 @@ database.ref('isSingle')
   }).catch((error) => {
     console.log('Data did not changed', error);
   });
-/*
+*/
+
 database.ref().set({
   name: 'Cecilia Benitez',
   age: 25,
@@ -35,4 +37,15 @@ database.ref().set({
 }).catch((error) => {
   console.log('This failed', error);
 });
-*/
+
+database.ref().update({
+  name: 'Ceci',
+  age: 23,
+  job: 'Software Developer',
+  isSingle: null,
+  'location/city': 'Lambare'
+}).then(() => {
+  console.log('Data was updated');
+}).catch((error) => {
+  console.log('This failed', error);
+});
