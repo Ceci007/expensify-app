@@ -14,27 +14,62 @@ firebase.initializeApp(config);
 
 const database = firebase.database();
 
-database.ref('expenses').push({
-  description: 'Rent',
-  note: '',
-  amount: 109500,
-  createdAt: 8962360
+// child_removed
+database.ref('expenses').on('child_removed', (snapshot) => {
+  console.log(snapshot.key, snapshot.val());
 });
 
-database.ref('expenses').push({
-  description: 'Phone bill',
-  note: '',
-  amount: 300,
-  createdAt: 8962360
+// child_changed
+database.ref('expenses').on('child_changed', (snapshot) => {
+  console.log(snapshot.key, snapshot.val());
 });
 
+// child_added
+database.ref('expenses').on('child_added', (snapshot) => {
+  console.log(snapshot.key, snapshot.val());
+});
+
+const onValueChange = database.ref('expenses').on('value', (snapshot) => {
+  const expenses = [];
+
+  snapshot.forEach((childSnapshot) => {
+    expenses.push({
+      id: childSnapshot.key,
+      ...childSnapshot.val()
+    });
+  });
+
+  console.log(expenses);
+}, (error) => {
+  console.log('Failed to cancel subscription', error);
+});
+
+/*
+database.ref('expenses').once('value')
+  .then((snapshot) => {
+    const expenses = [];
+
+    snapshot.forEach((childSnapshot) => {
+      expenses.push({
+        id: childSnapshot.key,
+        ...childSnapshot.val()
+      });
+    });
+
+    console.log(expenses);
+  })
+  .catch((error) => {
+    console.log('error: ', error);
+  });
+*/
+/*
 database.ref('expenses').push({
   description: 'Food',
   note: '',
   amount: 1200,
   createdAt: 8962360
 });
-
+*/
 /*
 const notes = [
   {
