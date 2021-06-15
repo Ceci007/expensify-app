@@ -2,7 +2,7 @@ import database from '../firebase/firebase';
 
 // Add Expense Action
 export const addExpense = (expense) => ({
-  type: 'Add_EXPENSE',
+  type: 'ADD_EXPENSE',
   expense
 });
 
@@ -16,7 +16,7 @@ export const startAddExpense = (expenseData = {}) => {
     } = expenseData;
     const expense = { description, note, amount, createdAt };
 
-    database.ref('expenses').push(expense)
+    return database.ref('expenses').push(expense)
       .then((ref) => {
         dispatch(addExpense({
           id: ref.key,
