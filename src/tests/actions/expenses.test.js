@@ -34,7 +34,7 @@ test('should setup add expense action object with provided values', () => {
   });
 });
 
-test('should add expense to database and store', function (done) {
+test('should add expense to database and store', (done) => {
   const store = createMockStore({});
   const expenseData = {
     description: 'Mouse',
@@ -58,9 +58,9 @@ test('should add expense to database and store', function (done) {
     expect(snapshot.val()).toEqual(expenseData);
     done();
   }).catch(done);
-}, 30000);
+});
 
-test('should add expense with defaults to database and store', function (done) {
+test('should add expense with defaults to database and store', (done) => {
   const store = createMockStore({});
   const expenseDefaults = {
     description: '',
@@ -84,7 +84,7 @@ test('should add expense with defaults to database and store', function (done) {
     expect(snapshot.val()).toEqual(expenseDefaults);
     done();
   }).catch(done);
-}, 30000);
+});
 
 // test('should setup add expense action object with default values', () => {
 //   const action = addExpense();
