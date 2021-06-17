@@ -1,10 +1,10 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import moment from '../__mocks__/moment';
 import { startAddExpense, addExpense, editExpense, removeExpense } from '../../actions/expenses';
 import expenses from '../fixtures/expenses';
 import database from '../../firebase/firebase';
 
+// jest.useFakeTimers();
 const createMockStore = configureMockStore([thunk]);
 
 test('should setup remove expense action object', () => {
@@ -34,18 +34,18 @@ test('should setup add expense action object with provided values', () => {
   });
 });
 
-test('should add expense to database and store', (done) => {
+test('should add expense to database and store', ( /*done*/ ) => {
   const store = createMockStore({});
   const expenseData = {
     description: 'Mouse',
     amount: 3000,
     note: 'This one is better',
-    createdAt: moment(1000).valueOf()
+    createdAt: 1000
   };
 
   store.dispatch(startAddExpense(expenseData)).then(() => {
     const actions = store.getActions();
-    expect(actions[0]).toEqual({
+    expect(actions[0]).resolves.toEqual({
       type: 'ADD_EXPENSE',
       expense: {
         id: expect.any(String),
@@ -55,23 +55,23 @@ test('should add expense to database and store', (done) => {
 
     return database.ref(`expenses/${actions[0].expense.id}`).once('value');
   }).then((snapshot) => {
-    expect(snapshot.val()).toEqual(expenseData);
-    done();
-  }).catch(done);
+    expect(snapshot.val()).resolves.toEqual(expenseData);
+    // done();
+  });
 });
 
-test('should add expense with defaults to database and store', (done) => {
+test('should add expense with defaults to database and store', ( /* done */ ) => {
   const store = createMockStore({});
   const expenseDefaults = {
     description: '',
     amount: 0,
     note: '',
-    createdAt: moment(0).valueOf()
+    createdAt: 0
   };
 
   store.dispatch(startAddExpense({})).then(() => {
     const actions = store.getActions();
-    expect(actions[0]).toEqual({
+    expect(actions[0]).resolves.toEqual({
       type: 'ADD_EXPENSE',
       expense: {
         id: expect.any(String),
@@ -81,9 +81,9 @@ test('should add expense with defaults to database and store', (done) => {
 
     return database.ref(`expenses/${actions[0].expense.id}`).once('value');
   }).then((snapshot) => {
-    expect(snapshot.val()).toEqual(expenseDefaults);
-    done();
-  }).catch(done);
+    expect(snapshot.val()).resolves.toEqual(expenseDefaults);
+    // done();
+  });
 });
 
 // test('should setup add expense action object with default values', () => {
