@@ -7,6 +7,16 @@ body {
   font-size: $m-size;
   letter-spacing: 0.2rem;
   overflow-x: hidden;
+  color: $dark-gray;
+  line-height: 1.6;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
 }
 
 .is-active {
