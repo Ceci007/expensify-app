@@ -49,19 +49,18 @@ export class EditExpensePage extends React.Component {
                 <Modal
                     isOpen={this.state.selectedOption}
                     contentLabel="Removing Expense"
+                    ariaHideApp={false}
                     onRequestClose={this.closeModal}
                     closeTimeoutMS={200}
                     className="modal"
                 >
-                    <p>Are you sure you want to remove the selected expense?</p>
-                    <div className="two-items">
+                        <p>Are you sure you want to remove the selected expense?</p>
                         <button
-                          className="button button--danger" 
-                          onClick={this.onClick}>Remove</button>
+                            className="button button--danger" 
+                            onClick={this.onClick}>Yes</button>
                         <button 
-                          className="button"
-                          onClick={this.closeModal}>Cancel</button>  
-                    </div>   
+                            className="button"
+                            onClick={this.closeModal}>No</button>
                 </Modal>
             </div>
         );
