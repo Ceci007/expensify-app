@@ -4,11 +4,6 @@
   font-size: $font-size-large;
   font-weight: 300;
   padding: $s-size;
-  margin-top: 0;
-
-  @media(min-width: $desktop-breakpoint) {
-    margin-top: -10px;
-  }
 }
 
 .select {
