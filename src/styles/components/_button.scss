@@ -17,3 +17,13 @@
 .button--secondary {
   background: #888;
 }
+
+.button--danger {
+  background: $danger-red;
+  margin-right: 2rem;
+}
+
+.two-items {
+  display: flex;
+  justify-content: space-between;
+}
