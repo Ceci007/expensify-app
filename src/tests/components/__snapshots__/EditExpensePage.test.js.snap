@@ -11,7 +11,7 @@ exports[`Should render EditExpensePage correctly 1`] = `
       <h1
         className="page-header__title"
       >
-        Edit Expense
+        Edit expense
       </h1>
     </div>
   </div>
@@ -21,10 +21,10 @@ exports[`Should render EditExpensePage correctly 1`] = `
     <ExpenseForm
       expense={
         Object {
-          "amount": 4500,
-          "createdAt": 345600000,
-          "description": "Credit Card",
-          "id": "3",
+          "amount": 195,
+          "createdAt": 0,
+          "description": "Gum",
+          "id": "1",
           "note": "",
         }
       }
@@ -37,5 +37,6 @@ exports[`Should render EditExpensePage correctly 1`] = `
       Remove Expense
     </button>
   </div>
+  <Connect(RemoveExpenseModal) />
 </div>
 `;

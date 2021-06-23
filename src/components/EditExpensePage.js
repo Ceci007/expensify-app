@@ -1,83 +1,56 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import Modal from 'react-modal';
-import {startEditExpense, startRemoveExpense} from '../actions/expenses';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import ExpenseForm from './ExpenseForm';
- 
- 
-export class EditExpensePage extends React.Component {
- 
-    state = {
-        selectedOption: false
+import { startEditExpense } from '../actions/expenses';
+import { confirmRemoveExpense } from '../actions/expense';
+import RemoveExpenseModal from './RemoveExpenseModal';
+
+export class EditExpensePage extends Component {
+    handleRemoveExpenseConfirmation = () => {
+        this.props.confirmRemoveExpense(this.props.expense);
     };
- 
-    onSubmit = (expense) => {
+
+    handleEditExpense = (expense) => {
         this.props.startEditExpense(this.props.expense.id, expense);
         this.props.history.push('/');
     };
- 
-    openModal = () => {
-        this.setState(() => ({selectedOption: true}));
-    };
- 
-    closeModal = () => {
-        this.setState(() => ({selectedOption: false}));
-    };
- 
- 
-    onClick = () => {
-        this.props.startRemoveExpense({id: this.props.expense.id});
-        this.props.history.push('/');
-    };
- 
+
     render() {
         return (
             <div>
                 <div className="page-header">
                     <div className="content-container">
-                        <h1 className="page-header__title">Edit Expense</h1>
+                        <h1 className="page-header__title">Edit expense</h1>
                     </div>
                 </div>
-                
                 <div className="content-container">
-                    <ExpenseForm 
+                    <ExpenseForm
                         expense={this.props.expense}
-                        onSubmit={this.onSubmit}
+                        onSubmit={this.handleEditExpense}
                     />
-                    <button className="button button--secondary" onClick={this.openModal}>Remove Expense</button>
+
+                    <button className="button button--secondary" onClick={this.handleRemoveExpenseConfirmation}>
+                        Remove Expense
+                    </button>
                 </div>
-                <Modal
-                    isOpen={this.state.selectedOption}
-                    contentLabel="Removing Expense"
-                    ariaHideApp={false}
-                    onRequestClose={this.closeModal}
-                    closeTimeoutMS={200}
-                    className="modal"
-                >
-                        <p>Are you sure you want to remove the selected expense?</p>
-                        <button
-                            className="button button--danger" 
-                            onClick={this.onClick}>Yes</button>
-                        <button 
-                            className="button"
-                            onClick={this.closeModal}>No</button>
-                </Modal>
+
+                <RemoveExpenseModal/>
             </div>
         );
     }
 }
- 
-const mapDispatchToProps = (dispatch, props) => (
-    {
-        startEditExpense: (expenseId, expense) => dispatch(startEditExpense(expenseId, expense)),
-        startRemoveExpense: (data) => dispatch(startRemoveExpense(data))
-    }
-);
- 
-const mapStateToProps = (state, props) => {
-    return {
-        expense: state.expenses.find((expense) => (expense.id === props.match.params.id))
-    };
-};  
- 
+
+const mapStateToProps = (state, props) => ({
+    expense: state.expenses.find((expense) => expense.id === props.match.params.id),
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    startEditExpense: (id, expense) => {
+        dispatch(startEditExpense(id, expense));
+    },
+    confirmRemoveExpense: (expenseToRemove) => {
+        dispatch(confirmRemoveExpense(expenseToRemove));
+    },
+});
+
 export default connect(mapStateToProps, mapDispatchToProps)(EditExpensePage);
