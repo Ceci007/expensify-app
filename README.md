@@ -1,20 +1,21 @@
 # Expensify App
 
-Lorem ipsum...
+Is an app to keep your expenses in control, like a budget app but with different
+kinds of filters.
   
-![screenshot](./app_screenshot.png) 
+![screenshot](./app-screenshot.png) 
 
 ## Built With
 - JavaScript
 - React.Js
 
-## Video Demo
+## Live Demo
 
-[Video Demo Link]()
+[Live Demo Link](https://expensify-ceci-app.herokuapp.com/)
 
 ## Author
-- Cecilia Benitez
-- 👤GitHub: https://github.com/Ceci007
+### Cecilia Benitez
+- 👤 [GitHub](https://github.com/Ceci007)
 
 ## Show your support
 Give a ⭐️ if you like this project
