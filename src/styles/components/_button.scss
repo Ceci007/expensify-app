@@ -21,6 +21,11 @@
 .button--danger {
   background: $danger-red;
   margin-right: 2rem;
+
+  @media (max-width: $desktop-breakpoint) {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
 }
 
 .two-items {

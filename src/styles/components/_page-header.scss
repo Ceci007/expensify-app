@@ -15,3 +15,13 @@
     font-weight: 700;
   }
 }
+
+.page-header__note {
+  display: block;
+  font-style: italic;
+  font-size: $font-size-small;
+  padding: 10px;
+  background: #d0f0c0;
+  color: $success-green;
+  border: 2px solid $success-green;
+}

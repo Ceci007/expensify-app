@@ -2,7 +2,7 @@
 
 exports[`Should render RemoveExpenseModal correclty 1`] = `
 <Modal
-  ariaHideApp={true}
+  ariaHideApp={false}
   bodyOpenClassName="ReactModal__Body--open"
   className="modal"
   closeTimeoutMS={200}
@@ -34,7 +34,7 @@ exports[`Should render RemoveExpenseModal correclty 1`] = `
     className="modal__actions"
   >
     <button
-      className="button"
+      className="button button--danger"
       id="remove"
       onClick={[Function]}
     >

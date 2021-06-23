@@ -25,14 +25,18 @@
 }
 
 .modal {
-  background-color: $grey;
-  color: $light-gray;
+  background-color: $light-gray;
+  color: $dark-gray;
   max-width: 40rem;
   outline: none;
   padding: $l-size;
   text-align: center;
   border-radius: 0.8rem;
   z-index: 100;
+
+  @media (max-width: $desktop-breakpoint) {
+    max-width: 32rem;
+  }
 }
 
 .modal__title {
@@ -44,4 +48,16 @@
   font-weight: 300;
   margin: 0 0 $l-size 0;
   word-break: break-all;
+}
+
+.modal__actions {
+  margin-top: 20px;
+
+  @media (max-width: $desktop-breakpoint) {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-around;
+  }
 }

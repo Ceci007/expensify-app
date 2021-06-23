@@ -18,3 +18,9 @@
 input:focus, textarea:focus, .select:focus {
   outline: none;
 }
+
+.DateRangePickerInput {
+  display: block;
+  width: 338px;
+  font-size: 5px !important;
+}
