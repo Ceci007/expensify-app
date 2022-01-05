@@ -8,6 +8,7 @@ kinds of filters.
 ## Built With
 - JavaScript
 - React.Js
+- Sass, CSS
 
 ## Live Demo
 
