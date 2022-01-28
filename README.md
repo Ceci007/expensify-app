@@ -3,6 +3,7 @@
 Is an app to keep your expenses in control, like a budget app but with different
 kinds of filters. 
 Amount, date and so on.
+
   
 ![screenshot](./app-screenshot.png) 
 
