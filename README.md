@@ -11,6 +11,7 @@ Amount, date and so on.
 - JavaScript
 - React.Js
 - Sass, CSS
+- jsx
 
 ## Live Demo
 
